@@ -5,8 +5,8 @@
 	<name>Open Terminal Here</name>
 	<submenu></submenu>
 	<unique-id>1747175048252390-1</unique-id>
-	<command>exo-open --working-directory %f --launch TerminalEmulator</command>
-	<description>Example for a custom action</description>
+	<command>uwsm app -- alacritty --working-directory %f</command>
+	<description>Instantly opens a terminal window at the current folder location for quick command-line access.</description>
 	<range></range>
 	<patterns>*</patterns>
 	<startup-notify/>
