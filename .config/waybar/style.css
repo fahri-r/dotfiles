@@ -20,6 +20,14 @@ tooltip {
     /* tooltip rounded corners */
 }
 
+#bluetooth,
+#custom-wifi {
+    min-width: 20px;
+}
+
+#idle_inhibitor,
+#custom-wifi,
+#battery,
 #window,
 #workspaces button,
 #mpris,
@@ -92,7 +100,6 @@ tooltip {
 #workspaces button.active {
     /* active workspace */
     background: #7899df;
-
 }
 
 #workspaces button:hover {
@@ -100,6 +107,7 @@ tooltip {
     /* hovered workspace color */
 }
 
+#idle_inhibitor,
 #power-profiles-daemon {
     color: #c4cdf2;
 }
