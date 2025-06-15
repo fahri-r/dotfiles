@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-
-# Current Theme
 dir="$HOME/.config/rofi/powermenu"
 theme='powermenu'
 
@@ -18,7 +16,6 @@ logout=''
 yes=''
 no=''
 
-# Rofi CMD
 rofi_cmd() {
 	rofi -dmenu \
 		-p "Uptime: $uptime" \
@@ -26,7 +23,6 @@ rofi_cmd() {
 		-theme ${dir}/${theme}.rasi
 }
 
-# Confirmation CMD
 confirm_cmd() {
 	rofi -theme-str 'window {location: center; anchor: center; fullscreen: false; width: 350px;}' \
 		-theme-str 'mainbox {children: [ "message", "listview" ];}' \
@@ -39,17 +35,14 @@ confirm_cmd() {
 		-theme ${dir}/${theme}.rasi
 }
 
-# Ask for confirmation
 confirm_exit() {
 	echo -e "$yes\n$no" | confirm_cmd
 }
 
-# Pass variables to rofi dmenu
 run_rofi() {
 	echo -e "$lock\n$suspend\n$logout\n$reboot\n$shutdown" | rofi_cmd
 }
 
-# Execute Command
 run_cmd() {
 	selected="$(confirm_exit)"
 	if [[ "$selected" == "$yes" ]]; then
@@ -77,7 +70,6 @@ run_cmd() {
 	fi
 }
 
-# Actions
 chosen="$(run_rofi)"
 case ${chosen} in
     $shutdown)
@@ -89,12 +81,10 @@ case ${chosen} in
     $lock)
 		run_cmd
 		hyprlock
-		i3lock
         ;;
     $suspend)
 		run_cmd --suspend
 		hyprlock
-		i3lock
         ;;
     $logout)
 		run_cmd --logout

@@ -1,5 +1,10 @@
 @theme                          "~/.config/rofi/theme.rasi"
 
+configuration {
+    show-icons:                 true;
+    display-drun:               "";
+}
+
 window {
     transparency:               "real";
     location:                   center;
@@ -99,23 +104,19 @@ element selected normal {
     text-color:                 @text-active;
 }
 
+element-icon {
+    background-color:           transparent;
+    text-color:                 inherit;
+    size:                       32px;
+    cursor:                     inherit;
+}
+
 element-text {
     background-color:           transparent;
     text-color:                 inherit;
     highlight:                  inherit;
     cursor:                     inherit;
     vertical-align:             0.5;
-}
-
-message {
-    enabled:                    true;
-    margin:                     0px;
-    padding:                    12px;
-    border:                     0px solid;
-    border-radius:              20px;
-    border-color:               @border;
-    background-color:           @background-alt;
-    text-color:                 @text;
 }
 
 error-message {
@@ -128,11 +129,9 @@ error-message {
 }
 
 textbox {
-    font:                       "JetBrainsMono Nerd Font 10";
-    background-color:           inherit;
-    text-color:                 inherit;
+    background-color:           @background;
+    text-color:                 @text;
     vertical-align:             0.5;
-    horizontal-align:           0.5;
-    blink:                      true;
-    markup:                     true;
+    horizontal-align:           0.0;
+    highlight:                  none;
 }

@@ -1,0 +1,12 @@
+* {
+    font:                   "JetBrainsMono Nerd Font 8";
+}
+
+configuration {
+    hover-select:           true;
+    me-select-entry:        "MousePrimary";
+    me-accept-entry:        "!MousePrimary";
+    icon-theme:             "Papirus";
+}
+
+@import                     "~/.config/rofi/colors.rasi"
