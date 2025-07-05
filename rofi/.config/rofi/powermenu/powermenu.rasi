@@ -1,0 +1,133 @@
+@theme                          "~/.config/rofi/theme.rasi"
+
+window {
+    transparency:               "real";
+    location:                   center;
+    anchor:                     center;
+    fullscreen:                 false;
+    width:                      800px;
+    x-offset:                   0px;
+    y-offset:                   0px;
+    border-radius:              20px;
+    cursor:                     "default";
+    background-color:           @background;
+}
+
+mainbox {
+    enabled:                    true;
+    spacing:                    15px;
+    margin:                     0px;
+    padding:                    30px;
+    border:                     1px solid;
+    border-radius:              20px;
+    border-color:               @border;
+    background-color:           transparent;
+    children:                   [ "inputbar", "listview" ];
+}
+
+inputbar {
+    enabled:                    false;
+    spacing:                    15px;
+    border-radius:              20px;
+    border-color:               @border;
+    background-color:           transparent;
+    text-color:                 @text;
+    children:                   [ "textbox-prompt-colon", "prompt"];
+}
+
+dummy {
+    background-color:           transparent;
+}
+
+textbox-prompt-colon {
+    enabled:                    true;
+    expand:                     false;
+    str:                        "";
+    padding:                    12px 16px;
+    border-radius:              20px;
+    background-color:           @background;
+    text-color:                 @text;
+}
+
+prompt {
+    enabled:                    true;
+    padding:                    12px;
+    border-radius:              20px;
+    background-color:           @text-active;
+    text-color:                 @background;
+}
+
+message {
+    enabled:                    true;
+    margin:                     0px;
+    padding:                    12px;
+    border:                     0px solid;
+    border-radius:              20px;
+    border-color:               @border;
+    background-color:           @background-alt;
+    text-color:                 @text;
+}
+
+textbox {
+    font:                       "JetBrainsMono Nerd Font 10";
+    background-color:           inherit;
+    text-color:                 inherit;
+    vertical-align:             0.5;
+    horizontal-align:           0.5;
+    blink:                      true;
+    markup:                     true;
+}
+
+error-message {
+    padding:                    12px;
+    border:                     0px solid;
+    border-radius:              20px;
+    border-color:               @border;
+    background-color:           @background;
+    text-color:                 @text;
+}
+
+listview {
+    enabled:                    true;
+    columns:                    5;
+    lines:                      1;
+    cycle:                      true;
+    dynamic:                    true;
+    scrollbar:                  false;
+    layout:                     vertical;
+    reverse:                    false;
+    fixed-height:               false;
+    fixed-columns:              false;
+
+    spacing:                    15px;
+    border-radius:              20px;
+    border-color:               @border;
+    background-color:           transparent;
+    text-color:                 @text;
+    cursor:                     "default";
+}
+
+element {
+    enabled:                    true;
+    padding:                    40px 10px;
+    border-radius:              20px;
+    border-bottom:              5px;
+    border-color:               @border;
+    background-color:           @background-alt;
+    text-color:                 @text;
+    cursor:                     pointer;
+}
+
+element-text {
+    font:                       "JetBrainsMono Nerd Font 32";
+    background-color:           transparent;
+    text-color:                 inherit;
+    cursor:                     inherit;
+    vertical-align:             0.5;
+    horizontal-align:           0.5;
+}
+
+element selected normal {
+    background-color:           @background-active;
+    text-color:                 @text-active;
+}
