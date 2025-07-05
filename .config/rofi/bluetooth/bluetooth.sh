@@ -58,19 +58,19 @@ while true; do
   # Actions based on selected option
   case "$selected_option" in
   *"Enable Bluetooth")
-    notify-send "Bluetooth Enabled" -i "package-installed-outdated"
+    notify-send "Bluetooth Enabled" -i "package-installed-outdated" -t 3000
     rfkill unblock bluetooth
     bluetoothctl power on
     sleep 1
     ;;
   *"Disable Bluetooth")
-    notify-send "Bluetooth Disabled" -i "package-broken"
+    notify-send "Bluetooth Disabled" -i "package-broken" -t 3000
     rfkill block bluetooth
     bluetoothctl power off
     exit
     ;;
   *"Scan for devices")
-    notify-send "Press '?' to show help." -i "package-installed-outdated"
+    notify-send "Press '?' to show help." -i "package-installed-outdated" -t 3000
     kitty --title '󰂱  Bluetooth TUI' bash -c "bluetui" # Launch bluetui
     ;;
   *)
@@ -92,10 +92,10 @@ while true; do
       connection_status=$(bluetoothctl info "$device_mac" | grep "Connected:" | awk '{print $2}')
 
       if [[ "$connection_status" == "yes" ]]; then
-        notify-send "Connected to \"$device_name\"." -i "package-installed-outdated"
+        notify-send "Connected to \"$device_name\"." -i "package-installed-outdated" -t 3000
         exit
       else
-        notify-send "Failed to connect to \"$device_name\"." -i "package-broken"
+        notify-send "Failed to connect to \"$device_name\"." -i "package-broken" -t 3000
       fi
     fi
     ;;

@@ -54,13 +54,13 @@ while true; do
     exit
     ;;
   *"Enable Wi-Fi")
-    notify-send "Scanning for networks..." -i "package-installed-outdated"
+    notify-send "Scanning for networks..." -i "package-installed-outdated" -t 3000
     nmcli radio wifi on
     nmcli device wifi rescan
     sleep 3
     ;;
   *"Disable Wi-Fi")
-    notify-send "Wi-Fi Disabled" -i "package-broken"
+    notify-send "Wi-Fi Disabled" -i "package-broken" -t 3000
     nmcli radio wifi off
     exit
     ;;
@@ -79,18 +79,18 @@ while true; do
     if [ -z "$wifi_password" ]; then
       # Without password
       if nmcli device wifi connect "$manual_ssid" | grep -q "successfully"; then
-        notify-send "Connected to \"$manual_ssid\"." -i "package-installed-outdated"
+        notify-send "Connected to \"$manual_ssid\"." -i "package-installed-outdated" -t 3000
         exit
       else
-        notify-send "Failed to connect to \"$manual_ssid\"." -i "package-broken"
+        notify-send "Failed to connect to \"$manual_ssid\"." -i "package-broken" -t 3000
       fi
     else
       # With password
       if nmcli device wifi connect "$manual_ssid" password "$wifi_password" | grep -q "successfully"; then
-        notify-send "Connected to \"$manual_ssid\"." -i "package-installed-outdated"
+        notify-send "Connected to \"$manual_ssid\"." -i "package-installed-outdated" -t 3000
         exit
       else
-        notify-send "Failed to connect to \"$manual_ssid\"." -i "package-broken"
+        notify-send "Failed to connect to \"$manual_ssid\"." -i "package-broken" -t 3000
       fi
     fi
     ;;
@@ -100,10 +100,10 @@ while true; do
 
     if echo "$saved_connections" | grep -qw "$selected_ssid"; then
       if nmcli connection up id "$selected_ssid" | grep -q "successfully"; then
-        notify-send "Connected to \"$selected_ssid\"." -i "package-installed-outdated"
+        notify-send "Connected to \"$selected_ssid\"." -i "package-installed-outdated" -t 3000
         exit
       else
-        notify-send "Failed to connect to \"$selected_ssid\"." -i "package-broken"
+        notify-send "Failed to connect to \"$selected_ssid\"." -i "package-broken" -t 3000
       fi
     else
       # Handle secure network connection
@@ -112,10 +112,10 @@ while true; do
       fi
 
       if nmcli device wifi connect "$selected_ssid" password "$wifi_password" | grep -q "successfully"; then
-        notify-send "Connected to \"$selected_ssid\"." -i "package-installed-outdated"
+        notify-send "Connected to \"$selected_ssid\"." -i "package-installed-outdated" -t 3000
         exit
       else
-        notify-send "Failed to connect to \"$selected_ssid\"." -i "package-broken"
+        notify-send "Failed to connect to \"$selected_ssid\"." -i "package-broken" -t 3000
       fi
     fi
     ;;

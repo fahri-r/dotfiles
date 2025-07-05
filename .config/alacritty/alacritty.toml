@@ -15,8 +15,8 @@ bold_italic = { family = "JetBrainsMonoNerdFont", style = "Bold Italic" }
 
 [general]
 import = [
-  #"~/.config/alacritty/catppuccin-frappe.toml"
-   "~/.config/alacritty/catppuccin-frappe.toml"
+  #"~/.config/alacritty/themes/catppuccin-frappe.toml"
+   "~/.config/alacritty/themes/catppuccin-frappe.toml"
 ]
 
 [env]
