@@ -32,16 +32,30 @@
 │           └── user
 │               └── graphical-session.target.wants
 ├── themes
-│   └── .config
-│       ├── alacritty
-│       │   └── themes
-│       ├── btop
-│       │   └── themes
-│       ├── hypr
-│       ├── mako
-│       │   └── themes
-│       └── rofi
-│           └── themes
+│   ├── .config
+│   │   ├── alacritty
+│   │   │   └── themes
+│   │   ├── btop
+│   │   │   └── themes
+│   │   ├── hypr
+│   │   ├── mako
+│   │   │   └── themes
+│   │   └── rofi
+│   │       └── themes
+│   ├── .local
+│   │   ├── bin
+│   │   └── share
+│   │       ├── fonts
+│   │       ├── icons
+│   │       │   ├── Papirus
+│   │       │   ├── Papirus-Dark
+│   │       │   └── Papirus-Light
+│   │       └── themes
+│   │           ├── Graphite-teal-Dark-nord
+│   │           └── Graphite-teal-Light-nord
+│   └── Pictures
+│       ├── dark
+│       └── light
 ├── Thunar
 │   └── .config
 │       └── Thunar
