@@ -1,5 +1,6 @@
 # dotfiles
 
+```
 .
 ├── alacritty
 │   └── .config
@@ -52,3 +53,4 @@
 │       └── waybar
 │           └── custom
 └── zsh
+```
