@@ -12,4 +12,14 @@
 	<startup-notify/>
 	<directories/>
 </action>
+<action>
+    <icon>video-x-generic</icon>
+    <name>Convert to GIF</name>
+    <unique-id>1747175048252390-2</unique-id>
+    <command>~/.config/Thunar/scripts/video-to-gif.sh -f %f --fps 10 --lossy 50 --width 640</command>
+    <description>Convert video to optimized GIF with adjustable quality</description>
+    <patterns>*.mp4;*.mkv;*.webm;*.avi;*.mov</patterns>
+    <video-files/>
+    <startup-notify/>
+</action>
 </actions>
