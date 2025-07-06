@@ -73,7 +73,7 @@ apply_theme() {
   gsettings set org.gnome.desktop.interface color-scheme "${theme_ref[color_scheme]}" &
 
   sed -i "/path =/c\ path = ${theme_ref[wallpaper]}" ~/.config/hypr/hyprlock.conf
-  swww img "${theme_ref[wallpaper]}" --transition-step 80 --transition-fps 80 \ --transition-type any --transition-duration 1 &
+  swww img "${theme_ref[wallpaper]}" --transition-step 80 --transition-fps 80 --transition-type any --transition-duration 1 &
 
   cp -f "${MAKO_DIR}/themes/${theme_ref[mako_theme]}" "${MAKO_DIR}/config"
   makoctl reload
