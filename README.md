@@ -1,5 +1,19 @@
 # dotfiles
 
+## Screenshots
+
+![Dark Theme](.assets/dark.png)
+![Power Menu](.assets/powermenu.png)
+![App Launcher](.assets/launcher.png)
+![Wifi](.assets/wifi.png)
+
+## Video Demo
+
+<video src=".assets/demo.mp4" controls width="600"></video>
+
+<details>
+<summary>Project Structure</summary>
+
 ```
 .
 ├── alacritty
@@ -9,9 +23,11 @@
 │   └── .config
 │       └── btop
 ├── hypr
-│   └── .config
-│       └── hypr
-│           └── scripts
+│   ├── .config
+│   │   └── hypr
+│   │       └── scripts
+│   └── .local
+│       └── bin
 ├── kitty
 │   └── .config
 │       └── kitty
@@ -57,8 +73,10 @@
 │       ├── dark
 │       └── light
 ├── Thunar
-│   └── .config
-│       └── Thunar
+│   ├── .config
+│   │   └── Thunar
+│   └── .local
+│       └── bin
 ├── uwsm
 │   └── .config
 │       └── uwsm
@@ -68,3 +86,4 @@
 │           └── custom
 └── zsh
 ```
+</details>
