@@ -25,6 +25,7 @@ tooltip {
     min-width: 20px;
 }
 
+#custom-record,
 #idle_inhibitor,
 #custom-wifi,
 #battery,
@@ -63,6 +64,7 @@ tooltip {
     padding-right: 5px;
 }
 
+#custom-record,
 #privacy-item {
     background: #e64553;
     color: #15161e;

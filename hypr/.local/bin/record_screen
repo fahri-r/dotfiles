@@ -1,0 +1,69 @@
+#!/bin/bash
+
+# Configurable variables
+RECORDINGS_DIR="${RECORDINGS_DIR:-$HOME/Videos/Recordings}"
+NOTIFICATION_ICON="${NOTIFICATION_ICON:-camera}"
+LOCK_FILE="/tmp/record-screen.lock"
+RECORDING_PID_FILE="/tmp/wf-recorder.pid"
+
+# Ensure recordings directory exists
+mkdir -p "$RECORDINGS_DIR"
+
+# Function to show notification
+notify() {
+    local urgency="$1"
+    local message="$2"
+    notify-send -i "$NOTIFICATION_ICON" "Screen Recorder" "$message" -u "$urgency" -t 3000
+}
+
+# Function to clean up on exit
+cleanup() {
+    if [ -f "$LOCK_FILE" ]; then
+        rm -f "$LOCK_FILE"
+    fi
+    if [ -f "$RECORDING_PID_FILE" ]; then
+        rm -f "$RECORDING_PID_FILE"
+    fi
+}
+
+# Set up trap for clean exit
+trap cleanup EXIT INT TERM
+
+# Check if recording is already running
+if [ -f "$LOCK_FILE" ]; then
+    if pkill -INT -P "$(cat "$RECORDING_PID_FILE")" wf-recorder 2>/dev/null; then
+        pkill -USR2 -x record-screen 2>/dev/null  # Signal recording stopped
+        notify normal "Recording stopped"
+        cleanup
+        exit 0
+    else
+        # Clean up stale lock file
+        cleanup
+    fi
+fi
+
+# Create lock file
+touch "$LOCK_FILE"
+
+# Select recording area
+geometry=$(slurp -d 2>/dev/null)
+if [ -z "$geometry" ]; then
+    notify critical "Selection cancelled"
+    cleanup
+    exit 1
+fi
+
+# Start recording
+pkill -USR1 -x record-screen 2>/dev/null  # Signal recording started
+# notify low "Recording started (Select area: $geometry)"
+filename="$RECORDINGS_DIR/screen-record-$(date +%Y-%m-%d-%H-%M-%S).mp4"
+wf-recorder -f "$filename" -g "$geometry" &
+echo $! > "$RECORDING_PID_FILE"
+
+# Wait for recording to finish
+wait $!
+
+# Recording finished
+pkill -USR2 -x record-screen 2>/dev/null  # Signal recording stopped
+notify normal "Recording saved to $filename"
+cleanup

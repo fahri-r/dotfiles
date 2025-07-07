@@ -8,7 +8,8 @@
     "bluetooth",
     "hyprland/workspaces",
     "mpris",
-    "privacy"
+    "privacy",
+    "custom/record"
   ],
   "modules-center": [
     "clock"
@@ -48,8 +49,14 @@
     "min-length": 1,
     "max-length": 1
   },
+  "custom/record": {
+    "exec": "~/.config/waybar/custom/record-screen",
+    "exec-on-event": false,
+    "tooltip": false,
+    "on-click": "pkill -INT -P \"$(pgrep -xo record_screen)\" wf-recorder"
+  },
   "custom/wifi": {
-    "exec": "~/.config/waybar/custom/wifi-status.sh",
+    "exec": "~/.config/waybar/custom/wifi-status",
     "return-type": "json",
     "on-click": "~/.config/rofi/wifi/wifi.sh",
     "on-click-right": "kitty --title '󰤨  Network Manager TUI' bash -c nmtui",
