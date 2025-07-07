@@ -12,7 +12,7 @@
 
 ## Video Demo
 
-<video src="https://raw.githubusercontent.com/fahri-r/dotfiles/main/.assets/demo.mp4" controls width="600"></video>
+<video src="https://github.com/user-attachments/assets/b25f497b-09af-4063-8721-cc8d1fcd0d58" controls width="600"></video>
 
 <details>
 <summary>Project Structure</summary>
