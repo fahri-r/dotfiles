@@ -3,13 +3,16 @@
 ## Screenshots
 
 ![Dark Theme](.assets/dark.png)
+
 ![Power Menu](.assets/powermenu.png)
+
 ![App Launcher](.assets/launcher.png)
+
 ![Wifi](.assets/wifi.png)
 
 ## Video Demo
 
-<video src=".assets/demo.mp4" controls width="600"></video>
+<video src="https://raw.githubusercontent.com/fahri-r/dotfiles/main/.assets/demo.mp4" controls width="600"></video>
 
 <details>
 <summary>Project Structure</summary>
