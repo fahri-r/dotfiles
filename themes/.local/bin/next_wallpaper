@@ -3,12 +3,19 @@
 wallpaper_dir="$HOME/Pictures"
 state_file="$HOME/.config/hypr/.last_wallpaper_index"
 
-# Generate an ordered list of files, excluding dark.png and light.png
+# Determine theme directory based on Alacritty config
 if grep -q "catppuccin-frappe.toml" "$HOME/.config/alacritty/alacritty.toml"; then
-    mapfile -t wallpapers < <(find "$wallpaper_dir/dark" -type f | sort)
+    theme_dir="$wallpaper_dir/dark"
 else
-    mapfile -t wallpapers < <(find "$wallpaper_dir/light" -type f | sort)
+    theme_dir="$wallpaper_dir/light"
 fi
+
+# Use -L flag if directory is a symlink
+find_cmd="find \"$theme_dir\" -type f"
+[ -L "$theme_dir" ] && find_cmd="find -L \"$theme_dir\" -type f"
+
+# Load wallpapers into array
+mapfile -t wallpapers < <(eval "$find_cmd" | sort)
 
 # Total number of wallpapers
 total=${#wallpapers[@]}
@@ -27,7 +34,7 @@ next_index=$(((last_index + 1) % total))
 next_wallpaper="${wallpapers[$next_index]}"
 
 # Set hyprlock has the same wallpaper
-sed -i "/path =/c\    path = ${next_wallpaper}" ~/.config/hypr/hyprlock.conf
+sed -i "/path =/c\ path = ${next_wallpaper}" ~/.config/hypr/hyprlock.conf
 
 # Apply the wallpaper with transition
 swww img "$next_wallpaper" --transition-step 80 --transition-fps 80 --transition-type any --transition-duration 1
